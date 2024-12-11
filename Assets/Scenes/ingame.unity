@@ -590,7 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normal: {r: 0.9686275, g: 0.9686275, b: 0.9058824, a: 1}
-  success: {r: 0.0064079626, g: 0.4528302, b: 0.2535346, a: 1}
+  success: {r: 0, g: 0, b: 0, a: 1}
   fail: {r: 0.7830189, g: 0.025854412, b: 0.13517787, a: 1}
   main: {fileID: 519420031}
 --- !u!1 &687361001
