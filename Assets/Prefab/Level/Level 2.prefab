@@ -596,6 +596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle
       objectReference: {fileID: 0}
+    - target: {fileID: 1327712684869947059, guid: dfa0fd734104a2540b3854466c018ac0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.005
+      objectReference: {fileID: 0}
     - target: {fileID: 1327712684869947060, guid: dfa0fd734104a2540b3854466c018ac0, type: 3}
       propertyPath: m_Radius
       value: 0.6652439
@@ -681,6 +685,10 @@ PrefabInstance:
     - target: {fileID: 33096969885562975, guid: dfa0fd734104a2540b3854466c018ac0, type: 3}
       propertyPath: m_Name
       value: Circle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327712684869947059, guid: dfa0fd734104a2540b3854466c018ac0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.004
       objectReference: {fileID: 0}
     - target: {fileID: 1327712684869947060, guid: dfa0fd734104a2540b3854466c018ac0, type: 3}
       propertyPath: m_Radius

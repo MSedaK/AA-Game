@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,8 +30,11 @@ public class GameManager : MonoBehaviour
     public void OnGameOver()
     {
         Debug.Log("Game Over");
-        Time.timeScale = 0;
+        Time.timeScale = 0; // Oyun duraklatılıyor
         _colorManager.OnFail();
+
+        // MainMenu sahnesine geçiş yap
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void OnSuccess()

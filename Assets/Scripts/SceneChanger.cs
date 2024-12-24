@@ -4,6 +4,7 @@ public class SceneChanger : MonoBehaviour
 {
     public void StartGame()
     {
+        Time.timeScale = 1; // Zamaný baþlat
         SceneManager.LoadScene(1);
     }
 
