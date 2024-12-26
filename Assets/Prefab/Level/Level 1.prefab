@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1239158015531337370}
   m_Layer: 0
   m_Name: Level 1
-  m_TagString: Untagged
+  m_TagString: Center
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 1077431160105865895}
   m_Layer: 0
   m_Name: Center
-  m_TagString: Untagged
+  m_TagString: Center
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5744ecb19e8bf8a4abe17304030abd61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationSpeed: 0.1
 --- !u!50 &1077431160105865894
 Rigidbody2D:
   serializedVersion: 4
@@ -598,7 +599,7 @@ GameObject:
   - component: {fileID: 1801226789950466560}
   m_Layer: 0
   m_Name: Circle (3)
-  m_TagString: Bullet
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -683,7 +684,7 @@ GameObject:
   - component: {fileID: 5497010762318556812}
   m_Layer: 0
   m_Name: Circle (2)
-  m_TagString: Bullet
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -768,6 +769,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Circle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1327712684869947058, guid: dfa0fd734104a2540b3854466c018ac0, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 1327712684869947059, guid: dfa0fd734104a2540b3854466c018ac0, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.004
@@ -841,6 +846,10 @@ PrefabInstance:
     - target: {fileID: 33096969885562975, guid: dfa0fd734104a2540b3854466c018ac0, type: 3}
       propertyPath: m_Name
       value: Circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327712684869947058, guid: dfa0fd734104a2540b3854466c018ac0, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 1327712684869947059, guid: dfa0fd734104a2540b3854466c018ac0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1037,6 +1046,10 @@ PrefabInstance:
     - target: {fileID: 8883375471886093493, guid: fb70b709d37f61645a019c499ac63fa7, type: 3}
       propertyPath: m_Name
       value: Collider Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883375471886093493, guid: fb70b709d37f61645a019c499ac63fa7, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

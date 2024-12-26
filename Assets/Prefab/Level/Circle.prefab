@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1053696053072723701}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Bullet
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,6 +136,10 @@ PrefabInstance:
     - target: {fileID: 8883375471886093493, guid: fb70b709d37f61645a019c499ac63fa7, type: 3}
       propertyPath: m_Name
       value: Collider Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883375471886093493, guid: fb70b709d37f61645a019c499ac63fa7, type: 3}
+      propertyPath: m_TagString
+      value: Center
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -2,15 +2,31 @@ using UnityEngine;
 
 public class CenterController : MonoBehaviour
 {
-	private float _speed;
+    [SerializeField] private float rotationSpeed = 100f; // Inspector'dan ayarlanabilir hýz
+    private bool isRotating = false;
 
-	public void StartRotate(float speed)
-	{
-		_speed = speed;
-	}
+    private void Start()
+    {
+        // Baþlangýçta dönmeyi baþlat
+        StartRotate(rotationSpeed);
+    }
 
-	private void FixedUpdate()
-	{
-		transform.Rotate(Vector3.forward * (_speed * Time.deltaTime));
-	}
+    public void StartRotate(float speed)
+    {
+        rotationSpeed = speed;
+        isRotating = true;
+    }
+
+    public void StopRotate()
+    {
+        isRotating = false;
+    }
+
+    private void Update()
+    {
+        if (isRotating)
+        {
+            transform.Rotate(Vector3.forward * (rotationSpeed * Time.deltaTime));
+        }
+    }
 }

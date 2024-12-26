@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2877699259102735857}
   - component: {fileID: 2877699259102735856}
   - component: {fileID: 4092953372542129186}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider Center
   m_TagString: BulletCenter
   m_Icon: {fileID: 0}
@@ -145,9 +145,9 @@ GameObject:
   - component: {fileID: 2877699259551224271}
   - component: {fileID: 2877699259551224270}
   - component: {fileID: 5275353743670237447}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line: {fileID: 5573430670111005135}
   text: {fileID: 3922143574783045354}
+  finalOffset: 0.5
 --- !u!1 &4784027632184054709
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3474151383104652761}
   - component: {fileID: 5573430670111005135}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +334,7 @@ GameObject:
   - component: {fileID: 4851181414180540438}
   - component: {fileID: 3922143574783045354}
   - component: {fileID: 7073558478867669809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text Remain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,6 +514,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2877699259551224271}
     m_Modifications:
+    - target: {fileID: 7734400106060649269, guid: fb70b709d37f61645a019c499ac63fa7, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8883375471886093492, guid: fb70b709d37f61645a019c499ac63fa7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -556,6 +561,14 @@ PrefabInstance:
     - target: {fileID: 8883375471886093493, guid: fb70b709d37f61645a019c499ac63fa7, type: 3}
       propertyPath: m_Name
       value: Collider Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883375471886093493, guid: fb70b709d37f61645a019c499ac63fa7, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883375471886093493, guid: fb70b709d37f61645a019c499ac63fa7, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

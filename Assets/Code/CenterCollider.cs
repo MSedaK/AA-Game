@@ -1,14 +1,19 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CenterCollider : MonoBehaviour
 {
-	private void OnTriggerEnter2D(Collider2D col)
-	{
-		if (col.CompareTag($"BulletCenter"))
-		{
-			var bulletCenter = col.GetComponent<BulletCenterCollider>();
-			bulletCenter.MyBullet.OnCompleted(transform.parent);
-		}
-	}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            BulletController bullet = collision.gameObject.GetComponent<BulletController>();
+            if (bullet != null && !bullet.IsCompleted)
+            {
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.OnGameOver();
+                }
+            }
+        }
+    }
 }

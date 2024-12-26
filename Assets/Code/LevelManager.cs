@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
 
     [SerializeField] private List<LevelController> levelPrefabs;
-
     private int _index;
     private LevelController _current;
 
@@ -17,6 +14,7 @@ public class LevelManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -24,25 +22,108 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void OnStartLevel()
+    private void Start()
     {
-        var prefab = levelPrefabs[_index];
-        _current = Instantiate(prefab);
-        _current.MyStart(_index);
+        StartLevel();
     }
 
-    public void OnFinishLevel()
+    public void StartLevel()
     {
+        if (_index >= levelPrefabs.Count)
+        {
+            _index = 0;
+        }
+
+        if (levelPrefabs != null && levelPrefabs.Count > 0)
+        {
+            if (_current != null)
+            {
+                Destroy(_current.gameObject);
+            }
+
+            _current = Instantiate(levelPrefabs[_index]);
+            _current.MyStart(_index);
+
+            if (BulletManager.Instance != null)
+            {
+                BulletManager.Instance.bulletRemain = 5; // Varsayılan bullet sayısı
+            }
+
+            // Yeni level başlarken tüm eski bullet'ları temizle
+            GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+            foreach (GameObject bullet in bullets)
+            {
+                Destroy(bullet);
+            }
+        }
+    }
+
+    public void ResetLevel()
+    {
+        _index = 0;
+        if (_current != null)
+        {
+            Destroy(_current.gameObject);
+            _current = null;
+        }
+
+        // Reset sırasında tüm bullet'ları temizle
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach (GameObject bullet in bullets)
+        {
+            Destroy(bullet);
+        }
+
+        if (BulletManager.Instance != null)
+        {
+            BulletManager.Instance.bulletRemain = 5;
+        }
+    }
+
+    public bool CheckLevelComplete()
+    {
+        if (BulletManager.Instance == null) return false;
+        return BulletManager.Instance.bulletRemain <= 0;
+    }
+
+    public void CompleteLevel()
+    {
+        Debug.Log($"Completing level {_index + 1}");
         _index++;
-        Destroy(_current.gameObject);
-        GameManager.Instance.OnSuccess();
-        GameManager.Instance.AddScore(1);  // Skor artırma
+
+        if (_current != null)
+        {
+            Destroy(_current.gameObject);
+        }
+
+        // Level tamamlandığında tüm bullet'ları temizle
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach (GameObject bullet in bullets)
+        {
+            Destroy(bullet);
+        }
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnLevelComplete();
+        }
     }
 
-    public bool IsLevelCompleted()
+    public int GetCurrentLevelIndex()
     {
-        return BulletManager.Instance.bulletRemain == 0;
+        return _index;
     }
 
+    public void SetLevelIndex(int index)
+    {
+        _index = index;
+    }
 
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
 }

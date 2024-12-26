@@ -1,32 +1,40 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ColorManager : MonoBehaviour
 {
-	public static  ColorManager Instance { get; private set; }
-	
-	[SerializeField] private Color normal;
-	[SerializeField] private Color success;
-	[SerializeField] private Color fail;
-	[SerializeField] private Camera main;
+    [SerializeField] private Color normalColor = Color.white;
+    [SerializeField] private Color successColor = Color.green;
+    [SerializeField] private Color failColor = Color.red;
 
-	private void Awake()
-	{
-		Instance = this;
-	}
+    private Camera mainCamera;
 
-	public void OnSuccess()
-	{
-		main.backgroundColor = success;
-	}
+    private void Start()
+    {
+        mainCamera = Camera.main;
+        SetNormal();
+    }
 
-	public void OnFail()
-	{
-		main.backgroundColor = fail;
-	}
+    public void SetNormal()
+    {
+        if (mainCamera != null)
+        {
+            mainCamera.backgroundColor = normalColor;
+        }
+    }
 
-	public void SetNormal()
-	{
-		main.backgroundColor = normal;
-	}
+    public void OnSuccess()
+    {
+        if (mainCamera != null)
+        {
+            mainCamera.backgroundColor = successColor;
+        }
+    }
+
+    public void OnFail()
+    {
+        if (mainCamera != null)
+        {
+            mainCamera.backgroundColor = failColor;
+        }
+    }
 }

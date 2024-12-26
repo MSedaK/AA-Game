@@ -7,6 +7,8 @@ TagManager:
   - Center
   - Bullet
   - BulletCenter
+  - BulletHome
+  - BulletTarget
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Bullet
   - 
   - 
   - 
